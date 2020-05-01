@@ -53,8 +53,9 @@ function sayGoodbye(name) {
  * Hint 1: The formula for converting celsius to fahrenheit is t*9/5 + 32 where t is the temperature in celsius.
  * Hint 2: There is a very easy way to round numbers in JS. Do a google search to find out how. 
 */
-function temperatureCtoF(/* code here */) {
-  /* code here */
+function temperatureCtoF(t) {
+  let fahrenheit = Math.round (t * (9/5) + 32);
+  return fahrenheit;
 }
 
 /**
@@ -74,8 +75,14 @@ function temperatureCtoF(/* code here */) {
  * 
  * Hint: You can call your `temperatureCtoF` function from inside `temperatureInF`.
 */
-function temperatureInF(/* code here */) {
-  /* code here */
+function temperatureInF(t , unit) {
+  if (unit == "C"){
+    let fahrenheit = Math.round (t * (9/5) + 32);
+    return `${fahrenheit}F`
+  }else{
+    let fahrenheit = t;
+    return `${fahrenheit}F`;
+  }
 }
 
 
@@ -95,8 +102,13 @@ function temperatureInF(/* code here */) {
  *   email: "leia@leia.com",
  * }
 */
-function makePersonObject(/* code here */) {
-  /* code here */
+function makePersonObject(data1, data2, data3) {
+  let person = {
+    id: data1,
+    name: data2,
+    email: data3,
+  }
+  return person;
 }
 
 /**
@@ -112,8 +124,8 @@ function makePersonObject(/* code here */) {
  * passing { id: 1, name: 'Leia', email: 'leia@leia.com` } as the argument,
  * the returned value should look like `Hello, my name is Leia`.
 */
-function getName(/* code here */) {
-  /* code here */
+function getName(data1) {
+  return `Hello, my name is ${data1.name}`;
 }
 
 
@@ -132,8 +144,8 @@ function getName(/* code here */) {
  * passing in [ 'orange', 'grape', 'apple', 'banana', 'mango' ] as the argument,
  * the returned value should be: 2.
 */
-function appleIndex(/* code here */) {
-  /* code here */
+function appleIndex(array) {
+  return array.indexOf('apple');
 }
 
 /**
@@ -151,8 +163,16 @@ function appleIndex(/* code here */) {
  * passing in [ 'orange', 'apple', 'banana', 'apples', 'apple', 'mango' ] as the argument,
  * the returned value should be: [ false, true, false, false, true, false ].
 */
-function isItAnApple(/* code here */) {
-  /* code here */
+function isItAnApple(array) {
+  array.forEach(item => {
+    if (item == 'apple') {
+      array.shift(true);
+    }else{
+      array.shift(false);
+    }
+    console.log(array);
+    }
+  )
 }
 
 
@@ -187,6 +207,7 @@ var inventory = [
   *
   * NOTE: This example has been completed for you.
 **/
+// @ts-ignore
 function get3rdCar(inventory) {
   const the3rd = inventory[2];
   return `The is a ${the3rd.car_make} ${the3rd.car_model}`
@@ -209,6 +230,7 @@ function get3rdCar(inventory) {
  * For example, if getCarInfoByIndex is invoked with the inventory and the number 0,
  * it will return `This is a Lincoln Navigator`.
 */
+// @ts-ignore
 function getCarInfoByIndex(inventory, index) {
   /* code here */
 }
